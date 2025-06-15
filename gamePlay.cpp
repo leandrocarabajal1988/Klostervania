@@ -4,8 +4,7 @@
 #include "record.h"
 #include "batalla.h"
 #include "popUpCartel.h"
-#include <thread>
-#include <chrono>
+#include <thread>// borrarrrrrrrrrrrrrrrrrrr
 #include <iostream>
 #include <memory>
 #include <algorithm>
@@ -117,18 +116,17 @@ void gamePlay::procesarEventos()
                     break;
                 case 1:  // Continuar Partida
                     std::cout << "\nEntrando a Continuar partida";
-                    continuarPartida();
+                   // continuarPartida();
                     break;
                 case 2:  // Record
                     std::cout << "\nEntrando a records";
-                    record();
+                   // record();
                     break;
                 case 3:  // Créditos
                     std::cout << "\nEntrando a los creditos";
-                    creditos();
+                   // creditos();
                     break;
                 case 4:  // Salir
-                    std::this_thread::sleep_for(std::chrono::seconds(1));
                     ejecutando = false;
                     window.close();
                     break;
@@ -441,7 +439,7 @@ void gamePlay::inicializarEnemigos()
     enemigos.push_back(klosferatu);
 }
 
-void gamePlay::unlockPersonaje(int prototipoIndex)
+void gamePlay::unlockPersonaje(int prototipoIndex)//nose si llegamosss
 {
     if (prototipoIndex < 0 || prototipoIndex >= static_cast<int>(prototipos.size()))
         return;
@@ -732,7 +730,7 @@ void gamePlay::iniciarNuevaPartida()
 
     // 5. Marcar el juego como iniciado
     // Configuración inicial
-    jugadorActivo->setPosition({10.f, 200.f});
+    jugadorActivo->setPosition({10.f, 600.f});
     jugadorActivo->setScale({0.25f, 0.25f});
     jugadorActivo->setSalud(500);
 

@@ -49,14 +49,6 @@
 		<Unit filename="boss.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="continuarPartida.cpp" />
-		<Unit filename="continuarPartida.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="creditos.cpp" />
-		<Unit filename="creditos.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="enemigo.cpp" />
 		<Unit filename="enemigo.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -80,10 +72,6 @@
 		</Unit>
 		<Unit filename="popUpCartel.cpp" />
 		<Unit filename="popUpCartel.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="record.cpp" />
-		<Unit filename="record.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Extensions />

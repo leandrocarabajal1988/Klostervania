@@ -8,6 +8,7 @@
 #include "batalla.h"
 #include "popUpCartel.h"
 #include <SFML/Audio.hpp>
+#include <memory>
 #include <vector>
 #include <chrono>   // para std::chrono::seconds
 

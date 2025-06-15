@@ -1,14 +1,6 @@
 # depslib dependency file v1.0
-1747266900 source:c:\users\leand\desktop\klostervania\main.cpp
+1749939337 source:c:\users\leand\desktop\klostervania\main.cpp
 	"gamePlay.h"
-	<thread>
-	<SFML/Graphics.hpp>
-	<SFML/Audio.hpp>
-	"menu.h"
-	"nuevaPartida.h"
-	"personaje.h"
-	"enemigo.h"
-	"item.h"
 
 1745701554 c:\users\leand\desktop\klostervania\sfml-2.6.0\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -550,7 +542,7 @@
 
 1748995310 c:\users\leand\desktop\klostervania\nuevapartida.h
 
-1748972550 source:c:\users\leand\desktop\klostervania\enemigo.cpp
+1749938784 source:c:\users\leand\desktop\klostervania\enemigo.cpp
 	"enemigo.h"
 	<cstdlib>
 	<cmath>
@@ -561,17 +553,17 @@
 	<cstdlib>
 	<cmath>
 
-1749085133 source:c:\users\leand\desktop\klostervania\personaje.cpp
+1749938784 source:c:\users\leand\desktop\klostervania\personaje.cpp
 	"personaje.h"
 	<cmath>
 
-1749225432 c:\users\leand\desktop\klostervania\personaje.h
+1749938784 c:\users\leand\desktop\klostervania\personaje.h
 	<SFML/Graphics.hpp>
 	<SFML/System.hpp>
 	<string>
 	<iostream>
 
-1749061554 c:\users\leand\desktop\klostervania\enemigo.h
+1749938784 c:\users\leand\desktop\klostervania\enemigo.h
 	"personaje.h"
 	<SFML/Graphics.hpp>
 	<vector>
@@ -583,7 +575,7 @@
 	"personaje.h"
 	"popUpCartel.h"
 
-1749817766 source:c:\users\leand\desktop\klostervania\gameplay.cpp
+1749943458 source:c:\users\leand\desktop\klostervania\gameplay.cpp
 	"gamePlay.h"
 	"continuarPartida.h"
 	"creditos.h"
@@ -591,13 +583,12 @@
 	"batalla.h"
 	"popUpCartel.h"
 	<thread>
-	<chrono>
 	<iostream>
 	<memory>
 	<algorithm>
 	"personaje.h"
 
-1749761426 c:\users\leand\desktop\klostervania\gameplay.h
+1749939756 c:\users\leand\desktop\klostervania\gameplay.h
 	<SFML/Graphics.hpp>
 	"personaje.h"
 	"enemigo.h"
@@ -607,6 +598,7 @@
 	"batalla.h"
 	"popUpCartel.h"
 	<SFML/Audio.hpp>
+	<memory>
 	<vector>
 	<chrono>
 
@@ -645,12 +637,12 @@
 	"popUpCartel.h"
 	<stdexcept>
 
-1748988423 source:c:\users\leand\desktop\klostervania\boss.cpp
+1749938784 source:c:\users\leand\desktop\klostervania\boss.cpp
 	"boss.h"
 	<cstdlib>
 	<cmath>
 
-1748971417 c:\users\leand\desktop\klostervania\boss.h
+1749938784 c:\users\leand\desktop\klostervania\boss.h
 	"enemigo.h"
 
 1749079477 source:c:\users\oem\desktop\klostervania\batalla.cpp
