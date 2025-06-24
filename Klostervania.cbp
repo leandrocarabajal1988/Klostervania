@@ -33,6 +33,10 @@
 			<Add option="-std=c17" />
 			<Add option="-DSMFL_STATICS" />
 			<Add directory="SFML-2.6.0/include" />
+			<Add directory="tileson" />
+			<Add directory="tileson/common" />
+			<Add directory="tileson/json" />
+			<Add directory="tileson/tiled" />
 		</Compiler>
 		<Linker>
 			<Add library="sfml-graphics" />
@@ -64,6 +68,10 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="paredes.cpp" />
+		<Unit filename="paredes.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="personaje.cpp" />

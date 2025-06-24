@@ -645,11 +645,11 @@
 1749938784 c:\users\leand\desktop\klostervania\boss.h
 	"enemigo.h"
 
-1749079477 source:c:\users\oem\desktop\klostervania\batalla.cpp
+1749905434 source:c:\users\oem\desktop\klostervania\batalla.cpp
 	"batalla.h"
 	<iostream>
 
-1749079477 c:\users\oem\desktop\klostervania\batalla.h
+1749905434 c:\users\oem\desktop\klostervania\batalla.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -1181,13 +1181,13 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1749079477 c:\users\oem\desktop\klostervania\personaje.h
+1750099947 c:\users\oem\desktop\klostervania\personaje.h
 	<SFML/Graphics.hpp>
 	<SFML/System.hpp>
 	<string>
 	<iostream>
 
-1749079477 c:\users\oem\desktop\klostervania\enemigo.h
+1749510932 c:\users\oem\desktop\klostervania\enemigo.h
 	"personaje.h"
 	<SFML/Graphics.hpp>
 	<vector>
@@ -1197,7 +1197,7 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1749079477 c:\users\oem\desktop\klostervania\popupcartel.h
+1749905434 c:\users\oem\desktop\klostervania\popupcartel.h
 	"popUpCartel.h"
 	<stdexcept>
 	<SFML/Graphics.hpp>
@@ -1220,27 +1220,26 @@
 
 1747852680 c:\users\oem\desktop\klostervania\creditos.h
 
-1749079477 source:c:\users\oem\desktop\klostervania\enemigo.cpp
+1750368843 source:c:\users\oem\desktop\klostervania\enemigo.cpp
 	"enemigo.h"
 	<cstdlib>
 	<cmath>
 	<iostream>
 
-1749079477 source:c:\users\oem\desktop\klostervania\gameplay.cpp
+1750741048 source:c:\users\oem\desktop\klostervania\gameplay.cpp
 	"gamePlay.h"
-	"continuarPartida.h"
 	"creditos.h"
 	"record.h"
 	"batalla.h"
 	"popUpCartel.h"
 	<thread>
-	<chrono>
 	<iostream>
 	<memory>
 	<algorithm>
 	"personaje.h"
+	"paredes.h"
 
-1749079477 c:\users\oem\desktop\klostervania\gameplay.h
+1750740491 c:\users\oem\desktop\klostervania\gameplay.h
 	<SFML/Graphics.hpp>
 	"personaje.h"
 	"enemigo.h"
@@ -1250,8 +1249,10 @@
 	"batalla.h"
 	"popUpCartel.h"
 	<SFML/Audio.hpp>
+	<memory>
 	<vector>
-	<chrono>
+	<string>
+	"paredes.h"
 
 1749079477 c:\users\oem\desktop\klostervania\item.h
 	<SFML/Graphics.hpp>
@@ -1267,16 +1268,8 @@
 	<cstdlib>
 	<cmath>
 
-1749079915 source:c:\users\oem\desktop\klostervania\main.cpp
+1750028745 source:c:\users\oem\desktop\klostervania\main.cpp
 	"gamePlay.h"
-	<thread>
-	<SFML/Graphics.hpp>
-	<SFML/Audio.hpp>
-	"menu.h"
-	"nuevaPartida.h"
-	"personaje.h"
-	"enemigo.h"
-	"item.h"
 
 1749079477 c:\users\oem\desktop\klostervania\nuevapartida.h
 
@@ -1288,14 +1281,238 @@
 	"nuevaPartida.h"
 	"gamePlay.h"
 
-1749079477 source:c:\users\oem\desktop\klostervania\personaje.cpp
+1750099717 source:c:\users\oem\desktop\klostervania\personaje.cpp
 	"personaje.h"
 	<cmath>
 
-1749079477 source:c:\users\oem\desktop\klostervania\popupcartel.cpp
+1749905434 source:c:\users\oem\desktop\klostervania\popupcartel.cpp
 	"popUpCartel.h"
 	<stdexcept>
 
 1747852681 source:c:\users\oem\desktop\klostervania\record.cpp
 	"record.h"
+
+1750740410 c:\users\oem\desktop\klostervania\paredes.h
+	<SFML/Graphics.hpp>
+	<vector>
+
+1750773886 source:c:\users\oem\desktop\klostervania\paredes.cpp
+	"paredes.h"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\common\tools.hpp
+	<cstdint>
+	<vector>
+	<string_view>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tileson.h
+	"external/json11.hpp"
+	"tileson_parser.hpp"
+	"common/tileson_forward.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\external\json11.hpp
+	<string>
+	<vector>
+	<map>
+	<memory>
+	<initializer_list>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<cstdio>
+	<limits>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tileson_parser.hpp
+	<filesystem>
+	<filesystem>
+	<experimental/filesystem>
+	<experimental/filesystem>
+	<filesystem>
+	<experimental/filesystem>
+	<filesystem>
+	<fstream>
+	<sstream>
+	<memory>
+	"common/Tools.hpp"
+	"common/Base64Decompressor.hpp"
+	"common/Lzma.hpp"
+	"common/DecompressorContainer.hpp"
+	"misc/MemoryStream.hpp"
+	"tiled/Map.hpp"
+	"tiled/TiledEnum.hpp"
+	"tiled/TiledClass.hpp"
+	"tiled/Project.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\common\base64decompressor.hpp
+	"../interfaces/IDecompressor.hpp"
+	<string>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\interfaces\idecompressor.hpp
+	<string_view>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\common\lzma.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\common\decompressorcontainer.hpp
+	"../interfaces/IDecompressor.hpp"
+	<memory>
+	<vector>
+	<string_view>
+	<functional>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\misc\memorystream.hpp
+	"MemoryBuffer.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\misc\memorybuffer.hpp
+	<iostream>
+
+1750722283 c:\users\oem\desktop\klostervania\tileson\tiled\map.hpp
+	<functional>
+	"../objects/Color.hpp"
+	"../objects/Vector2.hpp"
+	"../interfaces/IJson.hpp"
+	"../json/NlohmannJson.hpp"
+	"../json/PicoJson.hpp"
+	"../json/Json11.hpp"
+	"Layer.hpp"
+	"Tileset.hpp"
+	"../common/Enums.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\color.hpp
+	<type_traits>
+	<cstdint>
+	<string>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\vector2.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\interfaces\ijson.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\json\nlohmannjson.hpp
+	<memory>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\json\picojson.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\json\json11.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\layer.hpp
+	<set>
+	"../objects/Vector2.hpp"
+	"../objects/Color.hpp"
+	"Chunk.hpp"
+	"Object.hpp"
+	"../objects/TileObject.hpp"
+	"../objects/Property.hpp"
+	"../objects/PropertyCollection.hpp"
+	"../common/Enums.hpp"
+	"../objects/FlaggedTile.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\chunk.hpp
+	"../objects/Vector2.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\object.hpp
+	"../objects/Vector2.hpp"
+	"../objects/PropertyCollection.hpp"
+	"Text.hpp"
+	"../common/Enums.hpp"
+	<optional>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\propertycollection.hpp
+	"Property.hpp"
+	<map>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\property.hpp
+	<any>
+	<string>
+	"../common/Enums.hpp"
+	"Color.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\common\enums.hpp
+	<cstdint>
+	"EnumBitflags.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\common\enumbitflags.hpp
+	<type_traits>
+	<iostream>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\text.hpp
+	<string>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\tileobject.hpp
+	"../objects/Rect.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\rect.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\flaggedtile.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\tileset.hpp
+	"../objects/Vector2.hpp"
+	"../objects/Color.hpp"
+	"../objects/PropertyCollection.hpp"
+	"Transformations.hpp"
+	"WangSet.hpp"
+	"Tile.hpp"
+	"Terrain.hpp"
+	"Grid.hpp"
+	<functional>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\transformations.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\wangset.hpp
+	"WangColor.hpp"
+	"WangTile.hpp"
+	"../objects/PropertyCollection.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\wangcolor.hpp
+	"../objects/Color.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\wangtile.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\tile.hpp
+	"../objects/Vector2.hpp"
+	"../objects/Color.hpp"
+	"Frame.hpp"
+	"Animation.hpp"
+	"../objects/PropertyCollection.hpp"
+	"Layer.hpp"
+	"../objects/Rect.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\frame.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\animation.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\terrain.hpp
+	"../objects/PropertyCollection.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\grid.hpp
+	"../objects/Vector2.hpp"
+	<string>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\tiledenum.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\tiledclass.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\project.hpp
+	<fstream>
+	<sstream>
+	<memory>
+	"World.hpp"
+	"../objects/ProjectPropertyTypes.hpp"
+	"../objects/ProjectFolder.hpp"
+	"../objects/ProjectData.hpp"
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tiled\world.hpp
+	"../objects/WorldMapData.hpp"
+	<memory>
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\worldmapdata.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\projectpropertytypes.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\projectfolder.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\objects\projectdata.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\common\tileson_forward.hpp
+
+1750713814 c:\users\oem\desktop\klostervania\tileson\tileson_min.h
+	"tileson_parser.hpp"
+	"common/tileson_forward.hpp"
 

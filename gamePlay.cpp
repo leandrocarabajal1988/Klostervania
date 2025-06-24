@@ -1,7 +1,7 @@
 #include "gamePlay.h"
-#include "continuarPartida.h"
+/*#include "continuarPartida.h"
 #include "creditos.h"
-#include "record.h"
+#include "record.h"*/
 #include "batalla.h"
 #include "popUpCartel.h"
 #include <thread>// borrarrrrrrrrrrrrrrrrrrr
@@ -9,6 +9,8 @@
 #include <memory>
 #include <algorithm>
 #include "personaje.h"
+#include "paredes.h"
+
 
 // ====================================================
 //  Constructor y configuración inicial de gamePlay
@@ -19,10 +21,13 @@ gamePlay::gamePlay()
     , pantallaNegra ({1500.f, 900.f})
     , flecha        (bufferFlecha)
     , enter         (bufferEnter)
+    , castle        (buffercastle)
+    , battle        (bufferbattle)
 {
     window.setFramerateLimit(60);
     pantallaNegra.setFillColor(sf::Color(0, 0, 0, 255)); // alpha=255 al inicio
     alphaFade = 255.f;
+
     // — Fondos —
     if (!fondoPrincipal.loadFromFile("img/Klostervania_fondo.jpg"))
         std::cout << "Error al cargar fondo principal\n";
@@ -56,18 +61,25 @@ gamePlay::gamePlay()
 
     // — Sonidos —
     if (!bufferFlecha.loadFromFile("audio/flecha.wav") ||
-            !bufferEnter.loadFromFile("audio/enter.wav"))
+            !bufferEnter.loadFromFile("audio/enter.wav")||
+            !buffercastle.loadFromFile("audio/castle.wav")||
+            !bufferbattle.loadFromFile("audio/battle.wav"))
     {
         std::cout << "Error al cargar audio\n";
     }
     flecha.setBuffer(bufferFlecha);
     enter.setBuffer(bufferEnter);
+    castle.setBuffer(buffercastle);
+    battle.setBuffer(bufferbattle);
+
+    ///MODULAR VOLUMEN
+    castle.setVolume(15.f);
+    battle.setVolume(20.f);
 
     // — Arrancamos el reloj de deltaTime —
     reloj.restart();
     std::cout << "Enemigos creados: " << enemigos.size() << std::endl;
 }
-
 void gamePlay::procesarEventos()
 {
     sf::Event event;
@@ -167,7 +179,7 @@ void gamePlay::procesarEventos()
     }
 }
 
-void gamePlay::updatePersonaje(sf::Time dt)
+  void gamePlay::updatePersonaje(sf::Time dt)
 {
     float deltaTime = dt.asSeconds();
 
@@ -204,14 +216,23 @@ void gamePlay::updatePersonaje(sf::Time dt)
         bool movArr = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
         bool movAbj = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
 
-        const float speed = 2.5f;
-        if (movIzq) jugadorActivo->mover(-speed, 0.f);
-        if (movDer) jugadorActivo->mover(+speed, 0.f);
-        if (movArr) jugadorActivo->mover(0.f, -speed);
-        if (movAbj) jugadorActivo->mover(0.f, +speed);
+        const float speed = 2.5f; ///MOVIMIENTO
 
-        jugadorActivo->update(deltaTime, movDer, movIzq, movArr, movAbj);
-        vista.setCenter(jugadorActivo->getPosition());
+        // GUARDAR POSICIÓN ANTES DE MOVER
+    sf::Vector2f posicionAnterior = jugadorActivo->getPosition();
+
+    // MOVER SEGÚN INPUT
+    if (movIzq) jugadorActivo->mover(-speed, 0.f);
+    if (movDer) jugadorActivo->mover(+speed, 0.f);
+    if (movArr) jugadorActivo->mover(0.f, -speed);
+    if (movAbj) jugadorActivo->mover(0.f, +speed);
+
+    /// DETECCIÓN DE COLISIÓN CON PAREDES
+    if (paredes.colisiona(jugadorActivo->getBounds())) {
+        jugadorActivo->setPosition(posicionAnterior); // Volver atrás si choca
+    }
+    jugadorActivo->update(deltaTime, movDer, movIzq, movArr, movAbj);
+    vista.setCenter(jugadorActivo->getPosition());
 
         // — Limitar la vista a los bordes del fondo escalado —
 sf::Vector2f centro = vista.getCenter();
@@ -277,14 +298,26 @@ void gamePlay::drawMenuPrincipal()
 
 void gamePlay::drawExploracion()
 {
+
     window.clear(sf::Color::Black);
 
     if (juegoIniciado)
 
     {
+        if (!sonidoInicioReproducido)
+    {
+        castle.play(); ///  Reproducir sonido de inicio de partida
+        sonidoInicioReproducido = true;
+    }
+
          window.setView(vista);
         // — Partida en curso —
         window.draw(spriteNuevaPartida);
+
+
+        ////-DIBUJAR PAREDES
+         paredes.dibujarDebug(window);  // Muestra las colisiones en rojo translúcido
+        // paredes.dibujar(window);
 
         // Dibujar todos los enemigos activos
         for (auto* e : enemigos)
@@ -300,7 +333,7 @@ void gamePlay::drawExploracion()
         // Dibujar ítem si corresponde
         itemRecolectable.draw(window);
     }
-
+  // drawMapa();
     window.display();
 }
 
@@ -317,8 +350,6 @@ void gamePlay::ejecutar()
             drawMenuPrincipal();
             break;
 
-
-
         case EstadoJuego::Exploracion:
             updatePersonaje(dt);
             drawExploracion();
@@ -332,6 +363,11 @@ void gamePlay::ejecutar()
             // 1) Si aún no hemos creado la batalla, la inicializamos
             if (!batallaIniciada && enemigoSeleccionado && jugadorActivo)
             {
+                   if (!sonidoBattleReproducido){
+                       castle.stop();
+                       battle.play(); ///  Reproducir sonido de inicio de partida
+                       sonidoBattleReproducido = true;
+                }
                 // Crear la instancia de batalla
                 std::vector<enemigo*> participantes{ enemigoSeleccionado };
                 batallaGamePlay = new batalla(*jugadorActivo, participantes, flecha);
@@ -370,6 +406,10 @@ void gamePlay::ejecutar()
             // 6) Si la batalla terminó y ya cerraron el pop-up, procesar resultado
             if (batallaGamePlay && batallaGamePlay->finBatalla() && !batallaGamePlay->popupFinBatalla.isActive())
             {
+                  battle.stop();       /// Detener música de batalla
+                  castle.play();       /// Volver a la música de exploración
+                  sonidoBattleReproducido = false; /// Habilitar para la próxima batalla
+
                 // 6.1) Restaurar al jugador a su posición previa
                 jugadorActivo->setPosition(posicionPreBatalla);
 
@@ -729,10 +769,13 @@ void gamePlay::iniciarNuevaPartida()
     inicializarEnemigos();
 
     // 5. Marcar el juego como iniciado
-    // Configuración inicial
-    jugadorActivo->setPosition({10.f, 600.f});
+
+    /// CONFIGURACION INICIAL
+    jugadorActivo->setPosition({10.f, 200.f});
     jugadorActivo->setScale({0.25f, 0.25f});
     jugadorActivo->setSalud(500);
+
+    paredes.crear();///AGREGUE
 
     fadeInTransition(spriteNuevaPartida);
 

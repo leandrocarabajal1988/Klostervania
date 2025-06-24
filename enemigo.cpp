@@ -86,7 +86,7 @@ void enemigo::update(float deltaTime,
         personaje::update(deltaTime, movDer, movIzq, movArr, movAbj);
         return;
     }
-
+/*         DESACTIVO TEMPORALMENTE
     // 3) IA de patrulla aleatoria fuera de combate
     _tiempoDesdeUltimoMovimiento += deltaTime;
     if (_tiempoDesdeUltimoMovimiento >= 0.7f && !_puntosPatrulla.empty()) {
@@ -103,7 +103,7 @@ void enemigo::update(float deltaTime,
             sprite.move(dir * speedP);
         }
         _tiempoDesdeUltimoMovimiento = 0.f;
-    }
+    }*/
 
     // 4) Delegar animaciones de caminata/respiración a personaje::update
     personaje::update(deltaTime, false, false, false, false);

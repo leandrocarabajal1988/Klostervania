@@ -15,6 +15,12 @@ public:
               const std::string& rutaSpritesheet,
               const sf::Vector2f& escala);
 
+       /*
+    sf::Vector2f getPosition() const;
+    void setPosition(const sf::Vector2f& pos);
+    sf::FloatRect getBounds() const;*/
+
+
     virtual ~personaje() = default;  // Destructor virtual para herencia segura
 
     // --- Setters de estadísticas ---
@@ -48,12 +54,12 @@ public:
     virtual void draw(sf::RenderWindow& window);      // Dibuja el personaje
 
     // --- Posición y escala genéricos ---
-    virtual sf::Vector2f getPosition() const;
+    virtual sf::Vector2f getPosition() const;///AQUI
     virtual const sf::Sprite& getSprite() const;
     virtual sf::Sprite& getSprite();
-    virtual sf::FloatRect getBounds() const;
+    virtual sf::FloatRect getBounds() const;///AQUI
     void setPosition(float x, float y);
-    void setPosition(const sf::Vector2f& pos);
+    void setPosition(const sf::Vector2f& pos);///
     void setOrigin(float x, float y);
 
     // Sobrecargas para escala:
@@ -80,6 +86,7 @@ public:
     virtual bool estaAtacando();
 
 protected:
+
     estadoPersonaje estado = estadoPersonaje::quieto;
 
     // --- Estadísticas del personaje ---

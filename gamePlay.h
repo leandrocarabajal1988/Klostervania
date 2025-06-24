@@ -10,7 +10,8 @@
 #include <SFML/Audio.hpp>
 #include <memory>
 #include <vector>
-#include <chrono>   // para std::chrono::seconds
+#include <string>
+#include "paredes.h"
 
 class gamePlay
 {
@@ -27,6 +28,13 @@ private:
     void drawMenuPrincipal();
     void drawExploracion();
     void mostrarGameOver();
+
+  /*std::unique_ptr<tson::Map> mapa;
+  sf::Texture tilesetTexture;
+  void loadMapa();     // carga el mapa desde JSON
+  void drawMapa();     // dibuja los tiles en pantalla*/
+
+   Paredes paredes; ///AGREGUE ATRIBUTO*/
 
     sf::Clock reloj;
 
@@ -57,8 +65,16 @@ private:
     // ————— Sonidos —————
     sf::SoundBuffer bufferFlecha;
     sf::SoundBuffer bufferEnter;
+    sf::SoundBuffer buffercastle;
+    sf::SoundBuffer bufferbattle;
+
     sf::Sound       flecha;
     sf::Sound       enter;
+    sf::Sound       castle;
+    sf::Sound       battle;
+    bool sonidoInicioReproducido = false;
+    bool sonidoBattleReproducido = false;
+
 
     // ————— Entidades del juego —————
     std::vector<std::shared_ptr<personaje>> prototipos;

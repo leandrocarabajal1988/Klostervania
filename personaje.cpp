@@ -119,6 +119,22 @@ void personaje::mover(float offsetX, float offsetY)
 {
     sprite.move(offsetX, offsetY);
 }
+/*
+sf::Vector2f personaje::getPosition() const {
+    return sprite.getPosition();
+}
+
+void personaje::setPosition(const sf::Vector2f& pos) {
+    sprite.setPosition(pos);
+}
+
+sf::FloatRect personaje::getBounds() const {
+    return sprite.getGlobalBounds();
+}
+
+*/
+
+
 
 // Detiene la animación, resetea frame y temporizador
 void personaje::detener()
